@@ -23,4 +23,30 @@ x    !X     !!X  ~X     ~~X
 2    0x0    0x1  0xD     2 0x2
 
 
+2.1 && 2.2
+0b1110 >> 1  == 0b1111 == -1
 
+2.3
+X      x in binary      -x in binary
+1      0b0001           0b1111
+2      0b0010           0b1101 
+7      0b0111           0b1001 
+-8     0b1000           NAN
+
+2.4 (wrong answer)
+cond? t:f
+int conditional(int cond, int t, int f) {
+    int mask = (cond << 31) >> 32;  // 0x00000000 or 0xFFFFFFFF
+    return (mask | t) & (mask & f);
+}
+
+true
+0x0 | f = f
+0x0 & f = 0
+
+0x0 & f = f
+false
+0xF | f = 0xF
+0xF & f = f 
+
+0xF & f = f
